@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Dorwal - Portfolio</title>
+    <style>
+        :root {
+            --neon-blue: #00ffff;
+            --neon-purple: #ff00ff;
+            --neon-pink: #ff1493;
+            --dark-bg: #121212;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .neon-section {
+            background-color: rgba(0,0,0,0.7);
+            border: 2px solid var(--neon-blue);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 
+                0 0 10px var(--neon-blue),
+                0 0 20px var(--neon-purple),
+                0 0 40px var(--neon-pink);
+        }
+
+        .profile-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--neon-blue);
+            text-shadow: 
+                0 0 10px var(--neon-blue),
+                0 0 20px var(--neon-purple);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--neon-pink);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .education-section, .skills-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .education-section, .skills-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .neon-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .neon-button:hover {
+            background-color: var(--neon-blue);
+            color: black;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="profile-title">Aditya Dorwal</h1>
+        
+        <section class="neon-section">
+            <h2>About Me</h2>
+            <p>I am currently pursuing B.Tech in Computer Science with a specialization in Artificial Intelligence and Machine Learning at KCC Institute of Technology and Management, affiliated with AKTU. My academic journey has been marked by consistent learning and growth, with a CGPA of 7.8 in the last four semesters.</p>
+        </section>
+        
+        <section class="neon-section education-section">
+            <div>
+                <h2>Education</h2>
+                <p>B.Tech in Computer Science (AIML)</p>
+                <p>KCC Institute of Technology and Management</p>
+                <p>Greater Noida, Uttar Pradesh</p>
+            </div>
+            <div>
+                <h2>Academic Performance</h2>
+                <p>10th Grade: 80% (ICSE)</p>
+                <p>12th Grade: 83%</p>
+                <p>Current CGPA: 7.8</p>
+            </div>
+        </section>
+        
+        <section class="neon-section skills-section">
+            <div>
+                <h2>Programming Languages</h2>
+                <ul>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>C++</li>
+                    <li>C</li>
+                    <li>JavaScript</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Technical Skills & Expertise</h2>
+                <ul>
+                    <li>Data Structures and Algorithms (DSA)</li>
+                    <li>Machine Learning</li>
+                    <li>Data Science</li>
+                    <li>Web Development</li>
+                    <li>Problem Solving</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="neon-section">
+            <h2>Certifications</h2>
+            <ul>
+                <li>NPTEL - Introduction to Machine Learning (IIT Kharagpur)</li>
+                <li>NPTEL - Data Science for Engineers (IIT Madras)</li>
+                <li>Web Development (Udemy - Colt Steele)</li>
+            </ul>
+        </section>
+        
+        <section class="neon-section">
+            <h2>Career Aspirations</h2>
+            <p>Passionate about Machine Learning and Artificial Intelligence, with a strong desire to work in Bengaluru's thriving tech ecosystem. Actively solving DSA questions in Java and continuously expanding my programming skills across multiple languages.</p>
+        </section>
+        
+        <div class="social-links">
+            <a href="https://github.com/adityadorwal" target="_blank" class="neon-button">GitHub</a>
+            <a href="https://www.linkedin.com/in/aditya-dorwal-b4a488288/" target="_blank" class="neon-button">LinkedIn</a>
+            <a href="https://www.naukri.com/code360/profile/dorwaladitya" target="_blank" class="neon-button">Coding Ninjas</a>
+        </div>
+        
+        <section class="neon-section">
+            <h2>Contact Information</h2>
+            <p>Email: 18dorwaladitya@gmail.com</p>
+            <p>Mobile: +91 9113420277</p>
+            <p>Location: Greater Noida, Uttar Pradesh</p>
+        </section>
+        
+        <footer class="neon-section">
+            <p>Made with ❤️ in Greater Noida, Uttar Pradesh</p>
+        </footer>
+    </div>
+
+    <script>
+        // Optional: Add some interactive neon effects
+        document.querySelectorAll('.neon-section').forEach(section => {
+            section.addEventListener('mouseover', () => {
+                section.style.boxShadow = 
+                    '0 0 15px var(--neon-blue), ' +
+                    '0 0 25px var(--neon-purple), ' +
+                    '0 0 45px var(--neon-pink)';
+            });
+
+            section.addEventListener('mouseout', () => {
+                section.style.boxShadow = 
+                    '0 0 10px var(--neon-blue), ' +
+                    '0 0 20px var(--neon-purple), ' +
+                    '0 0 40px var(--neon-pink)';
+            });
+        });
+    </script>
+</body>
+</html>
