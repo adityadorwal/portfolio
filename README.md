@@ -1,50 +1,62 @@
-##🌐 Aditya Dorwal's Portfolio
-Welcome to my personal portfolio! This project showcases my journey and skills as a web developer. Crafted with HTML, CSS, and JavaScript, it serves as both a learning experience and a demonstration of my capabilities.
+# 🌐 Aditya Dorwal's Portfolio
 
-#🚀 Project Overview
-This portfolio is designed to highlight my proficiency in:
+Welcome to my personal portfolio! This project highlights my skills and projects as a web developer, built using clean and modern web technologies.
 
-HTML: Structuring web content.
+---
 
-CSS: Styling and layout design.
+## 🚀 Project Overview
 
-JavaScript: Adding interactivity and dynamic features.
+This portfolio showcases my proficiency in:
 
+- **HTML5** for semantic and accessible page structure.
+- **CSS3** for styling and responsive design.
+- **JavaScript** for interactivity and dynamic content.
 
-#🎯 Features
-Responsive Layout: Optimized for various screen sizes.
+The design emphasizes simplicity, clarity, and usability across devices.
 
-Interactive Elements: Engaging hover effects and animations.
+---
 
-Project Showcase: Displays my work with descriptions and links.
+## 🎯 Features
 
-#📂 Project Structure
+- **Responsive Layout:** Works smoothly on desktop, tablet, and mobile.
+- **Smooth Animations:** Subtle hover effects and transitions.
+- **Project Showcase:** Displays key projects with descriptions and live/demo links.
+- **Clean UI:** Minimalist design focused on content readability.
+
+---
+
+## 📂 Project Structure
 
 /portfolio
 │
-├── index.html        # Main HTML file
-├── styles.css        # Custom styles
-├── script.js         # JavaScript functionalities
-└── Images/           # Project images
-    ├── project1.png
-    └── project2.png
-#🌐 Live Demo
-Experience the live version of my portfolio here: https://adityadorwal.github.io/portfolio/
+├── index.html # Main HTML file
+├── styles.css # Styling rules
+├── script.js # JavaScript functionality
+└── Images/ # Image assets for projects and profile
 
-#🛠️ Technologies Used
-HTML5
+---
 
-CSS3
+## 🌐 Live Demo
 
-JavaScript
+Check out the live portfolio here: [https://adityadorwal.github.io/portfolio/](https://adityadorwal.github.io/portfolio/)
 
-#📬 Contact Me
-Feel free to connect with me:
+---
 
-Email: dorwaladitya18@gmail.com
+## 🛠️ Technologies Used
 
-LinkedIn: linkedin.com/in/adityadorwal
+- HTML5
+- CSS3 (Flexbox, Grid, Animations)
+- JavaScript (DOM manipulation, event handling)
 
-#🤝 Contributions
-Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request.
+---
 
+## 📬 Contact Me
+
+- **Email:** [your.email@example.com](dorwaladitya18@gmail.com)  
+- **LinkedIn:** [linkedin.com/in/adityadorwal](https://www.linkedin.com/in/adityadorwal)  
+
+---
+
+## 🤝 Contributions
+
+Contributions and feedback are welcome! Feel free to fork the repo and create pull requests.
