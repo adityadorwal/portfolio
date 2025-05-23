@@ -1,4 +1,4 @@
-#🌐 Aditya Dorwal's Portfolio
+##🌐 Aditya Dorwal's Portfolio
 Welcome to my personal portfolio! This project showcases my journey and skills as a web developer. Crafted with HTML, CSS, and JavaScript, it serves as both a learning experience and a demonstration of my capabilities.
 
 #🚀 Project Overview
