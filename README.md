@@ -26,14 +26,14 @@ The design emphasizes simplicity, clarity, and usability across devices.
 ---
 
 ## 📂 Project Structure
-
+"""
 /portfolio
 │
 ├── index.html # Main HTML file
 ├── styles.css # Styling rules
 ├── script.js # JavaScript functionality
 └── Images/ # Image assets for projects and profile
-
+"""
 ---
 
 ## 🌐 Live Demo
