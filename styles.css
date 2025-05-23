@@ -681,9 +681,9 @@ a:hover {
 }
 
 /* Uniform image container with aspect ratio */
-.project-image {
+..project-image {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 180px; /* fixed height fallback */
     overflow: hidden;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
