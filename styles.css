@@ -681,10 +681,10 @@ a:hover {
 }
 
 /* Uniform image container with aspect ratio */
-..project-image {
+/* ..project-image {
     width: 100%;
     height: 180px; /* fixed height fallback */
-    overflow: hidden;
+/*     overflow: hidden; 
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -693,7 +693,23 @@ a:hover {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+} */
+.project-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: #eee;
 }
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block; /* avoid inline image gaps */
+}
+
 
 .project-card:hover .project-image img {
     transform: scale(1.05);
