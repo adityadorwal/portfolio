@@ -1,239 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aditya Dorwal — AI/ML Engineer</title>
+  <meta name="description" content="Aditya Dorwal — AI/ML Engineer specializing in NLP, Computer Vision, and applied AI systems." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <!-- Fallback if Clash/Cabinet not available via Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
 
-  <!-- ─── HEADER ─── -->
+  <!-- NOISE OVERLAY -->
+  <div class="noise"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ══════════ HEADER ══════════ -->
   <header class="header" id="header">
     <div class="container">
       <nav class="navbar">
-        <a href="#home" class="logo">AD<span>.</span></a>
+        <a href="#home" class="logo">
+          <span class="logo-bracket">&lt;</span>AD<span class="logo-bracket">/&gt;</span>
+        </a>
         <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home" data-text="Home">Home</a></li>
+          <li><a href="#about" data-text="About">About</a></li>
+          <li><a href="#skills" data-text="Skills">Skills</a></li>
+          <li><a href="#experience" data-text="Experience">Experience</a></li>
+          <li><a href="#projects" data-text="Projects">Projects</a></li>
+          <li><a href="#contact" data-text="Contact">Contact</a></li>
         </ul>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+          <span></span><span></span><span></span>
         </button>
       </nav>
     </div>
   </header>
 
-  <!-- ─── HERO ─── -->
+  <!-- ══════════ HERO ══════════ -->
   <section id="home" class="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">Available for Internships & Collaborations</div>
-        <h1>Aditya<br /><span>Dorwal</span></h1>
-        <h3>AI/ML Engineer &amp; Software Developer</h3>
-        <p>Final-year engineering student building intelligent systems — from plant disease detectors to Gen AI chatbots and OS-level tools.</p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    <!-- Animated background blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <!-- Dot grid -->
+    <div class="dot-grid"></div>
+
+    <div class="container hero-container">
+      <div class="hero-left">
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          <span>Open to Internships &amp; Collaborations</span>
         </div>
-        <div class="social-icons">
-          <a href="https://github.com/adityadorwal" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/aditya-dorwal-b4a488288/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://leetcode.com/u/dorwaladitya/" target="_blank" rel="noopener" aria-label="LeetCode"><i class="fas fa-code"></i></a>
-          <a href="https://www.naukri.com/code360/profile/dorwaladitya" target="_blank" rel="noopener" aria-label="Code360"><i class="fas fa-briefcase"></i></a>
+
+        <h1 class="hero-name">
+          <span class="line-wrap"><span class="line anim-1">Aditya</span></span>
+          <span class="line-wrap"><span class="line anim-2 accent-text">Dorwal</span></span>
+        </h1>
+
+        <div class="hero-role">
+          <span class="role-prefix">—</span>
+          <span class="typewriter" id="typewriter"></span>
+          <span class="cursor-blink">|</span>
+        </div>
+
+        <p class="hero-desc anim-3">
+          Final-year B.Tech AIML student at KCC (AKTU) building automation-first AI systems — 
+          from CNN-based vision models to NLP assistants and GenAI applications. 
+          Currently enrolled in iHUB DivyaSampark @ IIT Roorkee.
+        </p>
+
+        <div class="hero-stats anim-4">
+          <div class="stat">
+            <span class="stat-num">500<span class="plus">+</span></span>
+            <span class="stat-label">DSA Problems</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">10<span class="plus">+</span></span>
+            <span class="stat-label">Projects Built</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">7.7</span>
+            <span class="stat-label">CGPA</span>
+          </div>
+        </div>
+
+        <div class="hero-actions anim-5">
+          <a href="#projects" class="btn btn-primary">
+            <span>View Projects</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+        </div>
+
+        <div class="hero-socials anim-6">
+          <a href="https://github.com/adityadorwal" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/aditya-dorwal-b4a488288/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://leetcode.com/u/dorwaladitya/" target="_blank" rel="noopener" aria-label="LeetCode">
+            <i class="fas fa-code"></i>
+          </a>
+          <a href="mailto:18dorwaladitya@gmail.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
         </div>
       </div>
-      <div class="hero-image">
-        <div class="hero-image-ring"></div>
-        <img src="Images/Profile_pic_1.jpg" alt="Aditya Dorwal" />
+
+      <div class="hero-right anim-3">
+        <div class="hero-image-wrap">
+          <div class="image-ring ring-1"></div>
+          <div class="image-ring ring-2"></div>
+          <div class="image-glow"></div>
+          <img src="Images/Profile_pic_1.jpg" alt="Aditya Dorwal" class="profile-img" />
+          <!-- floating chips -->
+          <div class="chip chip-tl"><i class="fas fa-brain"></i> AI/ML</div>
+          <div class="chip chip-br"><i class="fas fa-code"></i> Python</div>
+          <div class="chip chip-tr"><i class="fas fa-graduation-cap"></i> IIT Roorkee</div>
+        </div>
       </div>
     </div>
-    <div class="hero-scroll-hint">
+
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
       <span>Scroll</span>
-      <i class="fas fa-arrow-down"></i>
     </div>
   </section>
 
-  <!-- ─── ABOUT ─── -->
-  <section id="about" class="about reveal">
+  <!-- ══════════ ABOUT ══════════ -->
+  <section id="about" class="about">
     <div class="container">
-      <div class="section-title">
-        <span class="section-label">Who I Am</span>
-        <h2>About Me</h2>
-      </div>
-      <div class="about-content">
-        <div class="about-image reveal-left">
-          <img src="Images/Profile_pic_2.jpg" alt="Aditya Dorwal" />
-          <div class="about-image-accent"></div>
-        </div>
-        <div class="about-text reveal-right">
-          <h3>Hi, I'm Aditya 👋</h3>
-          <p>A passionate Final-year B.Tech student at KCC (AKTU), focused on AI/ML and software engineering. I love turning complex problems into clean, deployable solutions — from training deep learning models to building desktop tools and Gen AI applications.</p>
-          <p>My strengths lie in logical reasoning, rapid prototyping, and deep-diving into both research and real-world implementations.</p>
-          <div class="personal-info">
-            <div class="info-item">
-              <i class="fas fa-envelope"></i>
-              <p><span>Email:</span> dorwaladitya18@gmail.com</p>
-            </div>
-            <div class="info-item">
+      <div class="about-grid">
+        <div class="about-image-col reveal-left">
+          <div class="about-img-frame">
+            <img src="Images/Profile_pic_2.jpg" alt="Aditya Dorwal" />
+            <div class="img-badge">
               <i class="fas fa-map-marker-alt"></i>
-              <p><span>Location:</span> Greater Noida, India</p>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-graduation-cap"></i>
-              <p><span>Education:</span> B.Tech at KCC (AKTU)</p>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-laptop-code"></i>
-              <p><span>Focus:</span> AI/ML &amp; Software Dev</p>
+              Greater Noida, India
             </div>
           </div>
-          <a href="https://github.com/adityadorwal" target="_blank" class="btn btn-primary" rel="noopener">View GitHub</a>
+        </div>
+
+        <div class="about-text-col reveal-right">
+          <p class="section-eyebrow">Who I Am</p>
+          <h2 class="section-heading">Building AI that <em>works</em> in the real world</h2>
+          <p class="about-body">
+            I'm a final-year B.Tech student (CSE — AI &amp; ML) at KCC Institute of Technology, Greater Noida. My work sits at the intersection of machine learning, backend development, and intelligent automation — I enjoy turning ideas into working software, from training models to building the systems and interfaces around them.
+          </p>
+          <p class="about-body">
+            Currently enrolled in a specialized AI &amp; ML with Drone Technology program at <strong>iHUB DivyaSampark, IIT Roorkee</strong>, and working as an ML Engineer Intern at Shamgar Software Solutions (AICTE-approved). Previously an AI Intern at IBM SkillsBuild.
+          </p>
+
+          <div class="about-info-grid">
+            <div class="info-card">
+              <span class="info-label">Degree</span>
+              <span class="info-value">B.Tech CSE (AI &amp; ML), 2022–2026</span>
+            </div>
+            <div class="info-card">
+              <span class="info-label">CGPA</span>
+              <span class="info-value">7.7 / 10</span>
+            </div>
+            <div class="info-card">
+              <span class="info-label">Email</span>
+              <span class="info-value">18dorwaladitya@gmail.com</span>
+            </div>
+            <div class="info-card">
+              <span class="info-label">Status</span>
+              <span class="info-value info-available">✦ Available for Internships</span>
+            </div>
+          </div>
+
+          <div class="about-achievements">
+            <div class="achieve-item">
+              <i class="fas fa-trophy"></i>
+              <span>Ranked <strong>#1</strong> on Coding Ninjas leaderboard × 5 times</span>
+            </div>
+            <div class="achieve-item">
+              <i class="fas fa-medal"></i>
+              <span><strong>26</strong> coding badges — 1 Master, 4 Specialist</span>
+            </div>
+            <div class="achieve-item">
+              <i class="fas fa-lightbulb"></i>
+              <span>Participant — <strong>Smart India Hackathon 2024</strong></span>
+            </div>
+            <div class="achieve-item">
+              <i class="fas fa-university"></i>
+              <span>Enrolled — <strong>iHUB DivyaSampark @ IIT Roorkee</strong></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── SKILLS ─── -->
+  <!-- ══════════ SKILLS ══════════ -->
   <section id="skills" class="skills">
     <div class="container">
-      <div class="section-title">
-        <span class="section-label">What I Know</span>
-        <h2>My Skills</h2>
-        <p>A blend of practical programming, AI/ML expertise, and hands-on tools used in real-world projects.</p>
+      <div class="section-header reveal">
+        <p class="section-eyebrow">What I Know</p>
+        <h2 class="section-heading">Technical Skills</h2>
       </div>
-      <div class="skills-container">
 
-        <div class="skill-category reveal">
-          <h3><i class="fas fa-code"></i> Programming</h3>
-          <div class="skill-item">
-            <div class="skill-info"><h4>Python</h4><span>90%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="90"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>OOP &amp; Design Patterns</h4><span>85%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="85"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>DSA &amp; Problem Solving</h4><span>88%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="88"></div></div>
+      <!-- Tag cloud style -->
+      <div class="skills-grid">
+
+        <div class="skill-block reveal">
+          <div class="skill-block-icon"><i class="fas fa-code"></i></div>
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span class="stag stag-hot">Python</span>
+            <span class="stag">Java</span>
+            <span class="stag">C</span>
+            <span class="stag">C++</span>
+            <span class="stag">SQL</span>
           </div>
         </div>
 
-        <div class="skill-category reveal">
-          <h3><i class="fas fa-brain"></i> AI / ML</h3>
-          <div class="skill-item">
-            <div class="skill-info"><h4>PyTorch</h4><span>85%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="85"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>Computer Vision</h4><span>82%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="82"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>Transfer Learning</h4><span>80%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="80"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>LLMs / Gen AI / RAG</h4><span>78%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="78"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>Streamlit / Model Deployment</h4><span>80%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="80"></div></div>
+        <div class="skill-block reveal">
+          <div class="skill-block-icon"><i class="fas fa-brain"></i></div>
+          <h3>AI / ML</h3>
+          <div class="skill-tags">
+            <span class="stag stag-hot">TensorFlow</span>
+            <span class="stag stag-hot">CNNs</span>
+            <span class="stag stag-hot">NLP</span>
+            <span class="stag">Scikit-learn</span>
+            <span class="stag">Explainable AI</span>
+            <span class="stag">LLM Integration</span>
+            <span class="stag">Transfer Learning</span>
+            <span class="stag">Computer Vision</span>
           </div>
         </div>
 
-        <div class="skill-category reveal">
-          <h3><i class="fas fa-database"></i> Data Handling</h3>
-          <div class="skill-item">
-            <div class="skill-info"><h4>NumPy &amp; Pandas</h4><span>88%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="88"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>Data Analysis &amp; Visualization</h4><span>82%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="82"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>SQL / Databases</h4><span>72%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="72"></div></div>
+        <div class="skill-block reveal">
+          <div class="skill-block-icon"><i class="fas fa-table"></i></div>
+          <h3>Data</h3>
+          <div class="skill-tags">
+            <span class="stag stag-hot">Pandas</span>
+            <span class="stag stag-hot">NumPy</span>
+            <span class="stag">Data Analysis</span>
+            <span class="stag">Visualization</span>
+            <span class="stag">DBMS / SQL</span>
           </div>
         </div>
 
-        <div class="skill-category reveal">
-          <h3><i class="fas fa-tools"></i> Tools &amp; Platforms</h3>
-          <div class="skill-item">
-            <div class="skill-info"><h4>Git &amp; GitHub</h4><span>88%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="88"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>VS Code / Jupyter / Colab</h4><span>92%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="92"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>Docker (basics)</h4><span>65%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="65"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><h4>REST APIs / FastAPI / Flask</h4><span>75%</span></div>
-            <div class="skill-progress"><div class="skill-progress-bar" data-width="75"></div></div>
+        <div class="skill-block reveal">
+          <div class="skill-block-icon"><i class="fas fa-tools"></i></div>
+          <h3>Tools &amp; Deployment</h3>
+          <div class="skill-tags">
+            <span class="stag stag-hot">Git &amp; GitHub</span>
+            <span class="stag">VS Code</span>
+            <span class="stag">Jupyter Notebook</span>
+            <span class="stag">Google Colab</span>
+            <span class="stag stag-hot">Streamlit</span>
+            <span class="stag">REST APIs</span>
           </div>
         </div>
 
+      </div>
+
+      <!-- Proficiency bars for key skills -->
+      <div class="proficiency-section reveal">
+        <h3 class="prof-title">Core Proficiency</h3>
+        <div class="prof-grid">
+          <div class="prof-item">
+            <div class="prof-label"><span>Python</span><span class="prof-pct">92%</span></div>
+            <div class="prof-bar"><div class="prof-fill" data-width="92"></div></div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-label"><span>Machine Learning</span><span class="prof-pct">85%</span></div>
+            <div class="prof-bar"><div class="prof-fill" data-width="85"></div></div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-label"><span>Deep Learning / CNNs</span><span class="prof-pct">82%</span></div>
+            <div class="prof-bar"><div class="prof-fill" data-width="82"></div></div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-label"><span>NLP &amp; LLM Integration</span><span class="prof-pct">80%</span></div>
+            <div class="prof-bar"><div class="prof-fill" data-width="80"></div></div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-label"><span>DSA (Java &amp; Python)</span><span class="prof-pct">88%</span></div>
+            <div class="prof-bar"><div class="prof-fill" data-width="88"></div></div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-label"><span>Streamlit Deployment</span><span class="prof-pct">80%</span></div>
+            <div class="prof-bar"><div class="prof-fill" data-width="80"></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── EXPERIENCE ─── -->
+  <!-- ══════════ EXPERIENCE ══════════ -->
   <section id="experience" class="experience">
     <div class="container">
-      <div class="section-title">
-        <span class="section-label">My Journey</span>
-        <h2>Experience &amp; Certifications</h2>
+      <div class="section-header reveal">
+        <p class="section-eyebrow">My Journey</p>
+        <h2 class="section-heading">Experience &amp; Education</h2>
       </div>
-      <div class="timeline">
 
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">Jul – Sep 2024</div>
-            <h3 class="timeline-title">Introduction to Machine Learning</h3>
-            <div class="timeline-company"><i class="fas fa-university"></i> NPTEL – IIT Kharagpur</div>
-            <p class="timeline-description">Scored 81/100 (Elite Certification). Covered supervised &amp; unsupervised learning, SVMs, decision trees, clustering, and evaluation metrics (precision, recall, F1-score).</p>
-            <div class="timeline-tags"><span>Machine Learning</span><span>Elite Certificate</span><span>81/100</span></div>
+      <div class="exp-layout">
+
+        <!-- LEFT: Work Experience -->
+        <div class="exp-col">
+          <h3 class="exp-col-title"><i class="fas fa-briefcase"></i> Work Experience</h3>
+
+          <div class="exp-card reveal">
+            <div class="exp-card-header">
+              <div>
+                <div class="exp-company">Shamgar Software Solutions <span class="exp-badge badge-active">Active</span></div>
+                <div class="exp-role">ML Engineer Intern <span class="exp-via">— AICTE Approved</span></div>
+              </div>
+              <div class="exp-date">Oct 2025 – Present</div>
+            </div>
+            <ul class="exp-points">
+              <li>Developing and experimenting with ML models using Python for practical problem-solving tasks</li>
+              <li>Working on data preprocessing, model training, and evaluation workflows</li>
+              <li>Exploring automation techniques and ML pipelines for efficient experimentation and deployment</li>
+            </ul>
+            <div class="exp-tags">
+              <span>Python</span><span>ML Pipelines</span><span>Automation</span>
+            </div>
+          </div>
+
+          <div class="exp-card reveal">
+            <div class="exp-card-header">
+              <div>
+                <div class="exp-company">IBM SkillsBuild <span class="exp-via">× AICTE &amp; Edunet</span></div>
+                <div class="exp-role">Artificial Intelligence Intern</div>
+              </div>
+              <div class="exp-date">Sep – Oct 2025</div>
+            </div>
+            <ul class="exp-points">
+              <li>Completed 4-week industry-oriented internship on AI and Cloud fundamentals</li>
+              <li>Built foundational understanding of ML workflows, model lifecycle, and AI applications</li>
+              <li>Explored cloud-based AI tools and practical use cases of AI systems</li>
+            </ul>
+            <div class="exp-tags">
+              <span>AI</span><span>Cloud</span><span>IBM</span>
+            </div>
           </div>
         </div>
 
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">Jul – Sep 2024</div>
-            <h3 class="timeline-title">Data Science for Engineers</h3>
-            <div class="timeline-company"><i class="fas fa-university"></i> NPTEL – IIT Madras</div>
-            <p class="timeline-description">Learned EDA, data preprocessing, statistical analysis, and regression techniques. Built a strong foundation in data-driven problem solving using structured datasets.</p>
-            <div class="timeline-tags"><span>Data Science</span><span>EDA</span><span>Statistics</span></div>
-          </div>
-        </div>
+        <!-- RIGHT: Education & Certifications -->
+        <div class="exp-col">
+          <h3 class="exp-col-title"><i class="fas fa-graduation-cap"></i> Education &amp; Certifications</h3>
 
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2024</div>
-            <h3 class="timeline-title">AI Workshop &amp; Sprint</h3>
-            <div class="timeline-company"><i class="fas fa-robot"></i> JWD_AI</div>
-            <p class="timeline-description">Hands-on AI project sprint exploring real-world applications of AI tools and Python-based pipelines. Strengthened understanding of beginner-to-intermediate AI development workflows.</p>
-            <div class="timeline-tags"><span>Gen AI</span><span>Python</span><span>Hands-on</span></div>
+          <div class="exp-card reveal edu-card">
+            <div class="exp-card-header">
+              <div>
+                <div class="exp-company">iHUB DivyaSampark @ IIT Roorkee <span class="exp-badge badge-active">Ongoing</span></div>
+                <div class="exp-role">Specialized Program — AI &amp; ML with Drone Technology</div>
+              </div>
+              <div class="exp-date">Nov 2025 – May 2026</div>
+            </div>
+            <p class="exp-desc">Part of the IIT ecosystem — advanced AI and applied machine learning with drone technology integration.</p>
+          </div>
+
+          <div class="exp-card reveal edu-card">
+            <div class="exp-card-header">
+              <div>
+                <div class="exp-company">KCC Institute of Technology, Greater Noida</div>
+                <div class="exp-role">B.Tech — CSE (AI &amp; ML) <span class="exp-via">CGPA: 7.7/10</span></div>
+              </div>
+              <div class="exp-date">2022 – 2026</div>
+            </div>
+            <p class="exp-desc">Coursework: Machine Learning, Deep Learning, Data Structures, DBMS, AI Systems.</p>
+          </div>
+
+          <div class="certs-block reveal">
+            <h4 class="certs-title">Certifications</h4>
+            <div class="cert-item">
+              <i class="fas fa-certificate"></i>
+              <div>
+                <span class="cert-name">Introduction to Machine Learning</span>
+                <span class="cert-by">NPTEL — IIT Kharagpur &nbsp;·&nbsp; Elite (81/100)</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <i class="fas fa-certificate"></i>
+              <div>
+                <span class="cert-name">Data Science for Engineers</span>
+                <span class="cert-by">NPTEL — IIT Madras</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <i class="fas fa-certificate"></i>
+              <div>
+                <span class="cert-name">AI &amp; Cloud Technology Internship</span>
+                <span class="cert-by">AICTE — Edunet Foundation</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <i class="fas fa-certificate"></i>
+              <div>
+                <span class="cert-name">Python Programming Bootcamp</span>
+                <span class="cert-by">Udemy</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -241,243 +414,244 @@
     </div>
   </section>
 
-  <!-- ─── PROJECTS ─── -->
+  <!-- ══════════ PROJECTS ══════════ -->
   <section id="projects" class="projects">
     <div class="container">
-      <div class="section-title">
-        <span class="section-label">What I've Built</span>
-        <h2>My Projects</h2>
-        <p>Real projects — all live on GitHub.</p>
+      <div class="section-header reveal">
+        <p class="section-eyebrow">What I've Built</p>
+        <h2 class="section-heading">Projects</h2>
       </div>
 
-      <!-- Filter Buttons -->
-      <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="ai">AI / ML</button>
-        <button class="filter-btn" data-filter="web">Web / Full-Stack</button>
-        <button class="filter-btn" data-filter="tools">Tools</button>
+      <div class="filter-bar reveal">
+        <button class="flt active" data-filter="all">All</button>
+        <button class="flt" data-filter="ai">AI / ML</button>
+        <button class="flt" data-filter="web">Web / Full-Stack</button>
+        <button class="flt" data-filter="tools">Tools</button>
       </div>
 
-      <div class="projects-container" id="projectsGrid">
+      <div class="projects-grid" id="projectsGrid">
 
-        <!-- Plant Disease Detection -->
-        <div class="project-card reveal" data-category="ai">
-          <div class="project-image">
+        <!-- Plant Disease Detection — FEATURED -->
+        <div class="pcard pcard-featured reveal" data-cat="ai">
+          <div class="pcard-img">
             <img src="Images/PlantDiseaseDetection.png" alt="Plant Disease Detection" />
-            <div class="project-overlay">
-              <a href="https://github.com/adityadorwal/plant-disease-detection" target="_blank" rel="noopener" class="overlay-link"><i class="fab fa-github"></i> Code</a>
-              <a href="https://plant-disease-detection-hvxzmj8lebsnzvp7crta23.streamlit.app/" target="_blank" rel="noopener" class="overlay-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <div class="pcard-overlay">
+              <a href="https://github.com/adityadorwal/plant-disease-detection" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+              <a href="https://plant-disease-detection-hvxzmj8lebsnzvp7crta23.streamlit.app/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+            <span class="pcard-featured-badge">⭐ Featured</span>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="ptag ptag-ai">Deep Learning</span>
+              <span class="ptag ptag-ai">Computer Vision</span>
+              <span class="ptag">TensorFlow</span>
+              <span class="ptag">Streamlit</span>
+            </div>
+            <h3>Plant Disease Detection System</h3>
+            <p>CNN-based computer vision system achieving <strong>98% accuracy</strong> on plant leaf disease classification. Integrated Grad-CAM for explainability and deployed live on Streamlit Cloud.</p>
+            <div class="pcard-links">
+              <a href="https://github.com/adityadorwal/plant-disease-detection" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+              <a href="https://plant-disease-detection-hvxzmj8lebsnzvp7crta23.streamlit.app/" target="_blank" rel="noopener"><i class="fas fa-eye"></i> Live Demo</a>
             </div>
           </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag tag-ai">Deep Learning</span>
-              <span class="project-tag tag-ai">Computer Vision</span>
-              <span class="project-tag">PyTorch</span>
+        </div>
+
+        <!-- Desktop Manager -->
+        <div class="pcard reveal" data-cat="tools">
+          <div class="pcard-img">
+            <img src="Images/Desktop_Manager.png" alt="Desktop Manager" />
+            <div class="pcard-overlay">
+              <a href="https://github.com/adityadorwal/desktop-file-manager" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
-            <h3 class="project-title">Plant Disease Detection</h3>
-            <p class="project-description">ResNet-based model to classify plant leaf diseases from real-world images. Integrated Grad-CAM for explainability and deployed live on Streamlit Cloud.</p>
-            <div class="project-links">
-              <a href="https://github.com/adityadorwal/plant-disease-detection" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
-              <a href="https://plant-disease-detection-hvxzmj8lebsnzvp7crta23.streamlit.app/" target="_blank" rel="noopener" class="project-link"><i class="fas fa-eye"></i> Live Demo</a>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="ptag ptag-tools">Python</span>
+              <span class="ptag ptag-tools">NLP</span>
+              <span class="ptag">C++</span>
+              <span class="ptag">Tkinter</span>
+            </div>
+            <h3>Desktop Manager (Dorwal AI)</h3>
+            <p>Local NLP-driven desktop assistant for system-level automation using intent recognition and offline AI. Voice commands, file management, and Mistral AI API integration.</p>
+            <div class="pcard-links">
+              <a href="https://github.com/adityadorwal/desktop-file-manager" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
         </div>
 
         <!-- AI Study Buddy -->
-        <div class="project-card reveal" data-category="ai">
-          <div class="project-image project-image-placeholder ai-placeholder">
-            <div class="placeholder-icon"><i class="fas fa-graduation-cap"></i></div>
-            <div class="project-overlay">
-              <a href="https://github.com/adityadorwal/AI_Study_Buddy" target="_blank" rel="noopener" class="overlay-link"><i class="fab fa-github"></i> Code</a>
+        <div class="pcard reveal" data-cat="ai">
+          <div class="pcard-img pcard-placeholder bg-study">
+            <div class="ph-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="pcard-overlay">
+              <a href="https://github.com/adityadorwal/AI_Study_Buddy" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag tag-ai">Gen AI</span>
-              <span class="project-tag tag-ai">LLM</span>
-              <span class="project-tag">Python</span>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="ptag ptag-ai">Gen AI</span>
+              <span class="ptag ptag-ai">LLM</span>
+              <span class="ptag">Python</span>
             </div>
-            <h3 class="project-title">AI Study Buddy</h3>
-            <p class="project-description">An AI-powered study assistant that helps students learn, quiz themselves, and summarize topics using large language models. Built for interactive academic support.</p>
-            <div class="project-links">
-              <a href="https://github.com/adityadorwal/AI_Study_Buddy" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+            <h3>AI Study Buddy</h3>
+            <p>AI-powered study assistant built around workflow automation and logic orchestration. Helps students learn, quiz themselves, and summarize topics using LLM APIs.</p>
+            <div class="pcard-links">
+              <a href="https://github.com/adityadorwal/AI_Study_Buddy" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
         </div>
 
         <!-- INTENT-OS -->
-        <div class="project-card reveal" data-category="tools">
-          <div class="project-image project-image-placeholder tools-placeholder">
-            <div class="placeholder-icon"><i class="fas fa-terminal"></i></div>
-            <div class="project-overlay">
-              <a href="https://github.com/adityadorwal/INTENT-OS" target="_blank" rel="noopener" class="overlay-link"><i class="fab fa-github"></i> Code</a>
+        <div class="pcard reveal" data-cat="tools">
+          <div class="pcard-img pcard-placeholder bg-intent">
+            <div class="ph-icon"><i class="fas fa-terminal"></i></div>
+            <div class="pcard-overlay">
+              <a href="https://github.com/adityadorwal/INTENT-OS" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag tag-tools">Python</span>
-              <span class="project-tag tag-tools">OS Automation</span>
-              <span class="project-tag">AI</span>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="ptag ptag-tools">Python</span>
+              <span class="ptag ptag-tools">OS Automation</span>
+              <span class="ptag">NLP</span>
             </div>
-            <h3 class="project-title">INTENT-OS</h3>
-            <p class="project-description">An intent-driven OS-level automation tool that interprets natural language commands to perform system operations — blending AI with desktop-level control.</p>
-            <div class="project-links">
-              <a href="https://github.com/adityadorwal/INTENT-OS" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+            <h3>INTENT-OS</h3>
+            <p>Intent-driven OS-level automation tool that interprets natural language commands to perform system operations — blending AI reasoning with desktop-level control.</p>
+            <div class="pcard-links">
+              <a href="https://github.com/adityadorwal/INTENT-OS" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
         </div>
 
         <!-- Gen AI ChatBot -->
-        <div class="project-card reveal" data-category="ai">
-          <div class="project-image project-image-placeholder genai-placeholder">
-            <div class="placeholder-icon"><i class="fas fa-comments"></i></div>
-            <div class="project-overlay">
-              <a href="https://github.com/adityadorwal/Gen_AI_ChatBot" target="_blank" rel="noopener" class="overlay-link"><i class="fab fa-github"></i> Code</a>
+        <div class="pcard reveal" data-cat="ai">
+          <div class="pcard-img pcard-placeholder bg-chat">
+            <div class="ph-icon"><i class="fas fa-comments"></i></div>
+            <div class="pcard-overlay">
+              <a href="https://github.com/adityadorwal/Gen_AI_ChatBot" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag tag-ai">Gen AI</span>
-              <span class="project-tag tag-ai">Chatbot</span>
-              <span class="project-tag">LLM API</span>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="ptag ptag-ai">Gen AI</span>
+              <span class="ptag ptag-ai">Chatbot</span>
+              <span class="ptag">Task Intelligence</span>
             </div>
-            <h3 class="project-title">Gen AI ChatBot</h3>
-            <p class="project-description">A generative AI chatbot built using LLM APIs. Supports multi-turn conversations with context awareness, designed with a clean user interface for seamless interaction.</p>
-            <div class="project-links">
-              <a href="https://github.com/adityadorwal/Gen_AI_ChatBot" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+            <h3>Gen AI ChatBot</h3>
+            <p>Generative AI chatbot focused on workflow automation and task intelligence. Supports multi-turn context-aware conversations using LLM APIs with a clean interface.</p>
+            <div class="pcard-links">
+              <a href="https://github.com/adityadorwal/Gen_AI_ChatBot" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
         </div>
 
         <!-- E-Commerce Platform -->
-        <div class="project-card reveal" data-category="web">
-          <div class="project-image project-image-placeholder web-placeholder">
-            <div class="placeholder-icon"><i class="fas fa-shopping-cart"></i></div>
-            <div class="project-overlay">
-              <a href="https://github.com/adityadorwal/ecommerce-platform" target="_blank" rel="noopener" class="overlay-link"><i class="fab fa-github"></i> Code</a>
+        <div class="pcard reveal" data-cat="web">
+          <div class="pcard-img pcard-placeholder bg-ecom">
+            <div class="ph-icon"><i class="fas fa-shopping-cart"></i></div>
+            <div class="pcard-overlay">
+              <a href="https://github.com/adityadorwal/ecommerce-platform" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag tag-web">Full-Stack</span>
-              <span class="project-tag tag-web">Web App</span>
-              <span class="project-tag">Python</span>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="ptag ptag-web">Full-Stack</span>
+              <span class="ptag ptag-web">Web App</span>
+              <span class="ptag">Python</span>
             </div>
-            <h3 class="project-title">E-Commerce Platform</h3>
-            <p class="project-description">A full-featured e-commerce web application with product listings, user authentication, cart management, and order workflows — built from scratch.</p>
-            <div class="project-links">
-              <a href="https://github.com/adityadorwal/ecommerce-platform" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+            <h3>E-Commerce Platform</h3>
+            <p>Full-featured e-commerce web application with product listings, user authentication, cart management, and complete order workflows — built from scratch.</p>
+            <div class="pcard-links">
+              <a href="https://github.com/adityadorwal/ecommerce-platform" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
         </div>
 
         <!-- ResuMatch -->
-        <div class="project-card reveal" data-category="ai">
-          <div class="project-image project-image-placeholder resumatch-placeholder">
-            <div class="placeholder-icon"><i class="fas fa-file-alt"></i></div>
-            <div class="project-overlay">
-              <a href="https://github.com/adityadorwal/ResuMatch" target="_blank" rel="noopener" class="overlay-link"><i class="fab fa-github"></i> Code</a>
+        <div class="pcard reveal" data-cat="ai">
+          <div class="pcard-img pcard-placeholder bg-resu">
+            <div class="ph-icon"><i class="fas fa-file-alt"></i></div>
+            <div class="pcard-overlay">
+              <a href="https://github.com/adityadorwal/ResuMatch" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag tag-ai">NLP</span>
-              <span class="project-tag tag-ai">AI Matching</span>
-              <span class="project-tag">Python</span>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="ptag ptag-ai">NLP</span>
+              <span class="ptag ptag-ai">AI Matching</span>
+              <span class="ptag">Python</span>
             </div>
-            <h3 class="project-title">ResuMatch</h3>
-            <p class="project-description">An AI-powered resume-to-job matcher using NLP techniques. Parses resumes and job descriptions, then scores and ranks compatibility to help candidates find the right roles.</p>
-            <div class="project-links">
-              <a href="https://github.com/adityadorwal/ResuMatch" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Desktop File Manager -->
-        <div class="project-card reveal" data-category="tools">
-          <div class="project-image">
-            <img src="Images/Desktop_Manager.png" alt="Desktop File Manager" />
-            <div class="project-overlay">
-              <a href="https://github.com/adityadorwal/desktop-file-manager" target="_blank" rel="noopener" class="overlay-link"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag tag-tools">Python</span>
-              <span class="project-tag tag-tools">Tkinter</span>
-              <span class="project-tag">Desktop App</span>
-            </div>
-            <h3 class="project-title">Desktop File Manager</h3>
-            <p class="project-description">A Python desktop application with a GUI built in Tkinter for managing files and directories. Supports voice commands, file operations, and integrates Mistral AI API for chat.</p>
-            <div class="project-links">
-              <a href="https://github.com/adityadorwal/desktop-file-manager" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+            <h3>ResuMatch</h3>
+            <p>AI-powered resume-to-job matcher using NLP. Parses resumes and job descriptions, scores and ranks compatibility to help candidates find the best-fit roles.</p>
+            <div class="pcard-links">
+              <a href="https://github.com/adityadorwal/ResuMatch" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
         </div>
 
         <!-- MPIN Strength Checker -->
-        <div class="project-card reveal" data-category="tools">
-          <div class="project-image project-image-placeholder mpin-placeholder">
-            <div class="placeholder-icon"><i class="fas fa-shield-alt"></i></div>
-            <div class="project-overlay">
-              <a href="https://github.com/adityadorwal/MPIN-Strength-Checker" target="_blank" rel="noopener" class="overlay-link"><i class="fab fa-github"></i> Code</a>
+        <div class="pcard reveal" data-cat="tools">
+          <div class="pcard-img pcard-placeholder bg-mpin">
+            <div class="ph-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="pcard-overlay">
+              <a href="https://github.com/adityadorwal/MPIN-Strength-Checker" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag tag-tools">Python</span>
-              <span class="project-tag tag-tools">Security</span>
-              <span class="project-tag">CLI Tool</span>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="ptag ptag-tools">Python</span>
+              <span class="ptag ptag-tools">Security</span>
+              <span class="ptag">CLI Tool</span>
             </div>
-            <h3 class="project-title">MPIN Strength Checker</h3>
-            <p class="project-description">A security tool that evaluates the strength of Mobile PINs (MPINs) by checking against common patterns, birth-date combos, and sequential/repeated digits.</p>
-            <div class="project-links">
-              <a href="https://github.com/adityadorwal/MPIN-Strength-Checker" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- GEN_AI (Experiments) -->
-        <div class="project-card reveal" data-category="ai">
-          <div class="project-image project-image-placeholder genai2-placeholder">
-            <div class="placeholder-icon"><i class="fas fa-flask"></i></div>
-            <div class="project-overlay">
-              <a href="https://github.com/adityadorwal/GEN_AI" target="_blank" rel="noopener" class="overlay-link"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag tag-ai">Gen AI</span>
-              <span class="project-tag tag-ai">Experiments</span>
-              <span class="project-tag">Research</span>
-            </div>
-            <h3 class="project-title">GEN_AI Experiments</h3>
-            <p class="project-description">A collection of generative AI experiments and explorations — covering prompting strategies, LLM integrations, RAG pipelines, and small-scale AI application prototypes.</p>
-            <div class="project-links">
-              <a href="https://github.com/adityadorwal/GEN_AI" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+            <h3>MPIN Strength Checker</h3>
+            <p>Security tool that evaluates Mobile PIN strength by checking against common patterns, birth-date combos, and sequential / repeated digit vulnerabilities.</p>
+            <div class="pcard-links">
+              <a href="https://github.com/adityadorwal/MPIN-Strength-Checker" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
         </div>
 
-        <!-- LeetCode DSA Solutions -->
-        <div class="project-card reveal" data-category="tools">
-          <div class="project-image project-image-placeholder leetcode-placeholder">
-            <div class="placeholder-icon"><i class="fas fa-brain"></i></div>
-            <div class="project-overlay">
-              <a href="https://github.com/adityadorwal/leetcode-dsa_solutions" target="_blank" rel="noopener" class="overlay-link"><i class="fab fa-github"></i> Code</a>
+        <!-- GEN_AI -->
+        <div class="pcard reveal" data-cat="ai">
+          <div class="pcard-img pcard-placeholder bg-genai">
+            <div class="ph-icon"><i class="fas fa-flask"></i></div>
+            <div class="pcard-overlay">
+              <a href="https://github.com/adityadorwal/GEN_AI" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
-          <div class="project-content">
-            <div class="project-tags">
-              <span class="project-tag">DSA</span>
-              <span class="project-tag">LeetCode</span>
-              <span class="project-tag">Python</span>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="ptag ptag-ai">Gen AI</span>
+              <span class="ptag ptag-ai">RAG</span>
+              <span class="ptag">Experiments</span>
             </div>
-            <h3 class="project-title">LeetCode DSA Solutions</h3>
-            <p class="project-description">A curated repository of LeetCode problem solutions organized by topic — arrays, trees, graphs, dynamic programming — with clean, well-commented Python code.</p>
-            <div class="project-links">
-              <a href="https://github.com/adityadorwal/leetcode-dsa_solutions" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+            <h3>GEN_AI Experiments</h3>
+            <p>Collection of generative AI experiments — prompting strategies, LLM integrations, RAG pipelines, and small-scale AI application prototypes.</p>
+            <div class="pcard-links">
+              <a href="https://github.com/adityadorwal/GEN_AI" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- LeetCode DSA -->
+        <div class="pcard reveal" data-cat="tools">
+          <div class="pcard-img pcard-placeholder bg-leet">
+            <div class="ph-icon"><i class="fas fa-brain"></i></div>
+            <div class="pcard-overlay">
+              <a href="https://github.com/adityadorwal/leetcode-dsa_solutions" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="ptag">DSA</span>
+              <span class="ptag">LeetCode</span>
+              <span class="ptag">500+ Solved</span>
+            </div>
+            <h3>LeetCode DSA Solutions</h3>
+            <p>Curated repository of 500+ LeetCode solutions in Python and Java — arrays, trees, graphs, dynamic programming — with clean, well-commented code and earned 6 LeetCode badges.</p>
+            <div class="pcard-links">
+              <a href="https://github.com/adityadorwal/leetcode-dsa_solutions" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             </div>
           </div>
         </div>
@@ -486,114 +660,115 @@
     </div>
   </section>
 
-  <!-- ─── CONTACT ─── -->
+  <!-- ══════════ CONTACT ══════════ -->
   <section id="contact" class="contact">
-    <div class="contact-bg-accent"></div>
+    <div class="contact-glow"></div>
     <div class="container">
-      <div class="section-title">
-        <span class="section-label">Let's Connect</span>
-        <h2>Get In Touch</h2>
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Let's Connect</p>
+        <h2 class="section-heading">Get In Touch</h2>
       </div>
-      <div class="contact-content">
-        <div class="contact-info reveal-left">
-          <p>Whether you have a project in mind, want to collaborate, or just want to chat about AI/ML — feel free to reach out!</p>
-          <div class="contact-info-item">
-            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="contact-details">
-              <h4>Location</h4>
-              <p>Greater Noida, India</p>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-            <div class="contact-details">
-              <h4>Email</h4>
-              <a href="mailto:dorwaladitya18@gmail.com">dorwaladitya18@gmail.com</a>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <div class="contact-icon"><i class="fab fa-github"></i></div>
-            <div class="contact-details">
-              <h4>GitHub</h4>
-              <a href="https://github.com/adityadorwal" target="_blank" rel="noopener">github.com/adityadorwal</a>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
-            <div class="contact-details">
-              <h4>LinkedIn</h4>
-              <a href="https://www.linkedin.com/in/aditya-dorwal-b4a488288/" target="_blank" rel="noopener">Aditya Dorwal</a>
-            </div>
+
+      <div class="contact-grid">
+        <div class="contact-left reveal-left">
+          <p class="contact-intro">Whether you have a project in mind, want to collaborate, or just want to talk AI/ML — I'm always open to a good conversation.</p>
+
+          <div class="contact-links">
+            <a href="mailto:18dorwaladitya@gmail.com" class="clink">
+              <div class="clink-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="clink-label">Email</span>
+                <span class="clink-val">18dorwaladitya@gmail.com</span>
+              </div>
+              <i class="fas fa-arrow-right clink-arrow"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/aditya-dorwal-b4a488288/" target="_blank" rel="noopener" class="clink">
+              <div class="clink-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div>
+                <span class="clink-label">LinkedIn</span>
+                <span class="clink-val">Aditya Dorwal</span>
+              </div>
+              <i class="fas fa-arrow-right clink-arrow"></i>
+            </a>
+            <a href="https://github.com/adityadorwal" target="_blank" rel="noopener" class="clink">
+              <div class="clink-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <span class="clink-label">GitHub</span>
+                <span class="clink-val">adityadorwal</span>
+              </div>
+              <i class="fas fa-arrow-right clink-arrow"></i>
+            </a>
+            <a href="https://leetcode.com/u/dorwaladitya/" target="_blank" rel="noopener" class="clink">
+              <div class="clink-icon"><i class="fas fa-code"></i></div>
+              <div>
+                <span class="clink-label">LeetCode</span>
+                <span class="clink-val">dorwaladitya — 500+ solved</span>
+              </div>
+              <i class="fas fa-arrow-right clink-arrow"></i>
+            </a>
           </div>
         </div>
 
         <form class="contact-form reveal-right" id="contactForm" novalidate>
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="Aditya Dorwal" required />
-            <span class="form-error" id="nameError"></span>
+          <div class="form-row">
+            <div class="fgrp">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+              <span class="ferr" id="nameErr"></span>
+            </div>
+            <div class="fgrp">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              <span class="ferr" id="emailErr"></span>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required />
-            <span class="form-error" id="emailError"></span>
-          </div>
-          <div class="form-group">
+          <div class="fgrp">
             <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" class="form-control" placeholder="Project Collaboration" required />
-            <span class="form-error" id="subjectError"></span>
+            <input type="text" id="subject" name="subject" placeholder="What's it about?" required />
+            <span class="ferr" id="subjectErr"></span>
           </div>
-          <div class="form-group">
+          <div class="fgrp">
             <label for="message">Message</label>
-            <textarea id="message" name="message" class="form-control" placeholder="Hi Aditya, I'd love to..." required></textarea>
-            <span class="form-error" id="messageError"></span>
+            <textarea id="message" name="message" placeholder="Hey Aditya, I'd love to..." required></textarea>
+            <span class="ferr" id="messageErr"></span>
           </div>
           <button type="submit" class="btn btn-primary" id="submitBtn">
-            <span class="btn-text">Send Message</span>
-            <i class="fas fa-paper-plane"></i>
+            <span id="btnText">Send Message</span>
+            <i class="fas fa-paper-plane" id="btnIcon"></i>
           </button>
           <div class="form-success" id="formSuccess">
-            <i class="fas fa-check-circle"></i> Message sent! I'll get back to you soon.
+            <i class="fas fa-check-circle"></i> Sent! I'll get back to you soon.
           </div>
-          <!-- 
-            ── HOW TO MAKE THE FORM ACTUALLY SEND EMAILS ──
-            Option 1 (Recommended, Free): Use Formspree.io
-              1. Go to https://formspree.io and create a free account
-              2. Create a new form → copy your form endpoint (looks like https://formspree.io/f/xyzabcde)
-              3. In script.js, replace FORM_ENDPOINT with your Formspree URL
-              
-            Option 2: Use EmailJS (no backend needed)
-              1. Go to https://www.emailjs.com and sign up free
-              2. Create an Email Service + Email Template
-              3. Replace the fetch() call in script.js with EmailJS SDK call
-
-            Option 3: Use Netlify Forms (if hosting on Netlify)
-              1. Add  data-netlify="true"  to this <form> tag
-              2. Netlify handles everything automatically
+          <!--
+            ── TO ENABLE REAL EMAIL SENDING ──
+            1. Go to https://formspree.io → sign up free → new form
+            2. Copy your endpoint (e.g. https://formspree.io/f/xabcde)
+            3. In script.js line 8, paste it: const FORM_ENDPOINT = 'YOUR_URL'
           -->
         </form>
       </div>
     </div>
   </section>
 
-  <!-- ─── FOOTER ─── -->
+  <!-- ══════════ FOOTER ══════════ -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-content">
-        <a href="#home" class="footer-logo">AD<span>.</span></a>
-        <div class="footer-social">
-          <a href="https://github.com/adityadorwal" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/aditya-dorwal-b4a488288/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://leetcode.com/u/dorwaladitya/" target="_blank" rel="noopener" aria-label="LeetCode"><i class="fas fa-code"></i></a>
-          <a href="mailto:dorwaladitya18@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <div class="footer-inner">
+        <a href="#home" class="footer-logo">
+          <span class="logo-bracket">&lt;</span>AD<span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-copy">© 2025 Aditya Dorwal &nbsp;·&nbsp; Built with Python of the web 🐍</p>
+        <div class="footer-socials">
+          <a href="https://github.com/adityadorwal" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/aditya-dorwal-b4a488288/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:18dorwaladitya@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p class="footer-text">&copy; 2025 Aditya Dorwal. Built with ❤️ and lots of Python.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Scroll To Top -->
-  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <!-- Scroll Top -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
   </button>
 
