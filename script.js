@@ -1,117 +1,245 @@
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', function () {
-    // Mobile Navigation Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+/* ══════════════════════════════════════════
+   ADITYA DORWAL — PORTFOLIO SCRIPT
+   ══════════════════════════════════════════ */
 
-    hamburger.addEventListener('click', function () {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
+// ─── CONFIG ────────────────────────────────────────────────────────────────
+// TO MAKE THE CONTACT FORM ACTUALLY SEND EMAILS:
+//   1. Go to https://formspree.io → Create free account → New Form
+//   2. Copy your endpoint (e.g. "https://formspree.io/f/xyzabcde")
+//   3. Replace the empty string below with your endpoint
+//   4. That's it — no backend code needed!
+//
+// Alternative: Use Netlify Forms (add data-netlify="true" to the <form> tag)
+// Alternative: Use EmailJS (https://www.emailjs.com)
+const FORM_ENDPOINT = ''; // 👈 Paste your Formspree / EmailJS endpoint here
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ─── MOBILE HAMBURGER ──────────────────────────────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  const overlay   = createOverlay();
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    overlay.classList.toggle('visible', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  navLinks?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    hamburger.classList.remove('open');
+    overlay.classList.remove('visible');
+    document.body.style.overflow = '';
+  }
+
+  function createOverlay() {
+    const el = document.createElement('div');
+    el.style.cssText = `
+      position:fixed;inset:0;background:rgba(0,0,0,0.5);
+      z-index:997;display:none;transition:opacity .3s;
+    `;
+    el.classList.add('nav-overlay');
+    document.body.appendChild(el);
+    const style = document.createElement('style');
+    style.textContent = '.nav-overlay.visible{display:block!important;}';
+    document.head.appendChild(style);
+    return el;
+  }
+
+  // ─── STICKY HEADER ─────────────────────────────────────────────────────
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+
+  // ─── SCROLL TO TOP ─────────────────────────────────────────────────────
+  const scrollTopBtn = document.getElementById('scrollTop');
+  scrollTopBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ─── SMOOTH SCROLL FOR ANCHOR LINKS ────────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const offset = 72;
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: 'smooth'
+      });
     });
+  });
 
-    // Close mobile menu when a link is clicked
-    const navItems = document.querySelectorAll('.nav-links li a');
-    navItems.forEach(item => {
-        item.addEventListener('click', function () {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
+  // ─── INTERSECTION OBSERVER — REVEAL ────────────────────────────────────
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        // Stagger cards slightly
+        const delay = entry.target.closest('.projects-container')
+          ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 60
+          : 0;
+        setTimeout(() => entry.target.classList.add('in-view'), delay);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .timeline-item')
+    .forEach(el => revealObserver.observe(el));
+
+  // ─── SKILL BARS ────────────────────────────────────────────────────────
+  const skillObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.skill-progress-bar').forEach((bar, i) => {
+          setTimeout(() => {
+            bar.style.width = bar.getAttribute('data-width') + '%';
+          }, i * 100);
         });
+        skillObserver.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.3 });
 
-    // Sticky Header
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
-            header.classList.add('sticky');
+  document.querySelectorAll('.skill-category').forEach(cat => skillObserver.observe(cat));
+
+  // ─── PROJECT FILTER ────────────────────────────────────────────────────
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      projectCards.forEach(card => {
+        const match = filter === 'all' || card.getAttribute('data-category') === filter;
+        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        if (match) {
+          card.classList.remove('hidden');
+          card.style.opacity = '1';
+          card.style.transform = '';
         } else {
-            header.classList.remove('sticky');
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => card.classList.add('hidden'), 300);
         }
+      });
     });
+  });
 
-    // Scroll to Top Button
-    const scrollTopBtn = document.querySelector('.scroll-top');
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 300) {
-            scrollTopBtn.classList.add('active');
-        } else {
-            scrollTopBtn.classList.remove('active');
+  // ─── CONTACT FORM ──────────────────────────────────────────────────────
+  const form       = document.getElementById('contactForm');
+  const submitBtn  = document.getElementById('submitBtn');
+  const successMsg = document.getElementById('formSuccess');
+
+  if (form) {
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!validateForm()) return;
+
+      submitBtn.disabled = true;
+      submitBtn.querySelector('.btn-text').textContent = 'Sending…';
+
+      if (FORM_ENDPOINT) {
+        // Real submission via Formspree (or similar)
+        try {
+          const data = new FormData(form);
+          const res  = await fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            showSuccess();
+          } else {
+            throw new Error('Server error');
+          }
+        } catch (err) {
+          submitBtn.querySelector('.btn-text').textContent = 'Error — Try Again';
+          submitBtn.disabled = false;
         }
+      } else {
+        // No endpoint configured — show success anyway (demo mode)
+        // Remove this block once you add a real FORM_ENDPOINT above
+        await sleep(1000);
+        showSuccess();
+      }
     });
+  }
 
-    scrollTopBtn.addEventListener('click', function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+  function validateForm() {
+    let valid = true;
+    const fields = [
+      { id: 'name',    msg: 'Please enter your name.' },
+      { id: 'email',   msg: 'Please enter a valid email.', isEmail: true },
+      { id: 'subject', msg: 'Please enter a subject.' },
+      { id: 'message', msg: 'Please enter your message.' },
+    ];
+    fields.forEach(({ id, msg, isEmail }) => {
+      const input = document.getElementById(id);
+      const error = document.getElementById(id + 'Error');
+      const val   = input.value.trim();
+      const bad   = !val || (isEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
+      input.classList.toggle('error', bad);
+      if (error) error.textContent = bad ? msg : '';
+      if (bad) valid = false;
     });
+    return valid;
+  }
 
-    // Intersection Observer for Timeline Items
-    const observerOptions = {
-        threshold: 0.2
-    };
-
-    // Observer for Timeline Items
-    const timelineObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                timelineObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach(item => {
-        timelineObserver.observe(item);
+  // Clear errors on input
+  ['name','email','subject','message'].forEach(id => {
+    const el = document.getElementById(id);
+    el?.addEventListener('input', () => {
+      el.classList.remove('error');
+      const err = document.getElementById(id + 'Error');
+      if (err) err.textContent = '';
     });
+  });
 
-    // Observer for Project Cards
-    const projectObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                projectObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+  function showSuccess() {
+    form.reset();
+    successMsg.classList.add('visible');
+    submitBtn.querySelector('.btn-text').textContent = 'Send Message';
+    submitBtn.disabled = false;
+    setTimeout(() => successMsg.classList.remove('visible'), 6000);
+  }
 
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        projectObserver.observe(card);
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  // ─── ACTIVE NAV LINK ON SCROLL ─────────────────────────────────────────
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navAnchors.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        active?.classList.add('active');
+      }
     });
+  }, { threshold: 0.35 });
 
-    // Form Submission Event
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            // Form validation logic here
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
-        });
-    }
+  sections.forEach(s => sectionObserver.observe(s));
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+  // Highlight active nav link style
+  const styleTag = document.createElement('style');
+  styleTag.textContent = `.nav-links a.active { color: var(--text) !important; }
+  .nav-links a.active::after { width: 100% !important; }`;
+  document.head.appendChild(styleTag);
 
-    // Initialize skill progress bars
-    const skillBars = document.querySelectorAll('.skill-progress-bar');
-    skillBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => {
-            bar.style.width = width;
-        }, 500);
-    });
 });
