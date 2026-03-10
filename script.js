@@ -5,7 +5,7 @@
 // ── FORM ENDPOINT ──────────────────────────────────────────────────────────
 // Paste your Formspree URL here to make the contact form actually send emails.
 // Steps: formspree.io → sign up free → new form → copy endpoint
-const FORM_ENDPOINT = ''; // e.g. 'https://formspree.io/f/xabcdefg'
+const FORM_ENDPOINT = 'https://formspree.io/f/mqeypebn'; // e.g. 'https://formspree.io/f/xabcdefg'
 
 document.addEventListener('DOMContentLoaded', () => {
 
